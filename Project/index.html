@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Learning Git | Git & GitHub Basics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <nav id="navbar">
+        <div class="title-container"><header><h1 class="title red">Git & GitHub Basics</h1><h1 class="title light">Learning Git</h1></header></div>
+        <div class=nav-link-container>
+            <a class="nav-link" href="#Understanding_the_Workflow">Understanding the Workflow</a>
+            <a class="nav-link" href="#Initializing_a_Repository_&_Staging_Files">Initializing a Repository & Staging Files</a>
+            <a class="nav-link" href="#Status,_Unstaging_Files,_&_Committing">Status, Unstaging Files, & Committing</a>
+            <a class="nav-link" href="#Comparing_Files_Changes">Comparing Files Changes</a>
+            <a class="nav-link" href="#GitHub_&_Using_Clone,_Push,_&_Pull">GitHub & Using Clone, Push, & Pull</a>
+        </div>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Understanding_the_Workflow">
+            <header class=section-header><h1>Understanding the Workflow</h1></header>
+            <p>There are three key pieces to the workflow, the project directory, the staging area, and the git repository.</p>
+            <p>The project directory is folder where the project files are maintained on your local machine. The staging area, formerly known as the index, is a pre-snapshot review area for the files prepared to be committed to the repository. Finally, the git repository is a hidden sub directory in the local project directory.</p>
+            <p>Now the workflow for how files are managed using git: files located in the project directory are manually added to the staging area for review by the user. Once confirmed, files are committed from the project directory to a git repository. This means a snapshot of the project directory is stored in the repository, or the repo. Git uses a technology that requires very small amounts of storage, meaning a large collection of snapshots can be stored at a low cost.</p>
+        </section>
+        <section class="main-section" id="Initializing_a_Repository_&_Staging_Files">
+            <header class=section-header><h1>Initializing a Repository & Staging Files</h1></header>
+            <p>To establish a new git project, use any local directory and, using the Command Line Interface, enter <code>git init</code>. This will create a hidden “.git” directory. To see this directory in the terminal, use the <code>ls -a</code> command.</p>
+            <p>Once initialized, files can be added to the staging area in preparation for committing. This is done using the <code>git add</code> command. You can specify files, patterns or add the entire directory recursively. Each is shown below using a sample.</p>
+            <p><code>git add fileName1 fileName2</code> will add the specific files.</p>
+            <p><code>git add *.txt</code> will add all files ending with the extension .txt.</p>
+            <p><code>git add .</code> will add all files recursively.</p>
+        </section>
+        <section class="main-section" id="Status,_Unstaging_Files,_&_Committing">
+            <header class=section-header><h1>Status, Unstaging Files, & Committing</h1></header>
+            <p>With files in the staging area, <code>git status</code> is used to check the staging area status, prior to committing a snapshot. Files in red represent files not in the staging area. Files in green represent files in the staging area and are awaiting changes to be committed.</p>
+            <p>If you find files you need to remove from the staging area, use git restore --staged followed by the specified files. Listing files can be done by using the individual filename, patterns, or recursively. It follows similar syntax to git add.</p>
+            <p>Once the staging area is prepared to the user's liking, using <code>git commit</code> will commit the snapshot within the .git directory. When using this command, add a message to explain to others why the commit was made. This message is done using: <code>git commit -m "Message goes here"</code></p>
+        </section>
+        <section class="main-section" id="Comparing_Files_Changes">
+            <header class=section-header><h1>Comparing Files Changes</h1></header>
+            <p><code>git diff</code> allows the user to compare two files and inspect the differences between the two texts.</p>
+            <p><code>git diff --staged</code> compares the new staged files with the version already on git.</p>
+            <p>Using the command line, the following information is displayed:
+                <ol>
+                    <li class="li-gitDiff">States the diff utility is called with using the stated arguments. The later files is the newer file in the staging area.</li>
+                    <li class="li-gitDiff">Meta data is presented. It is not important to understand this portion.</li>
+                    <li class="li-gitDiff">A legend is provided explaining that changes in the old copy are indicated by "-".</li>
+                    <li class="li-gitDiff">A legend is provided explaining that changes in the new copy are indicated by "+".</li>
+                    <li class="li-gitDiff">A header summarizes what lines have changed.</li>
+                </ol>
+            </p>
+            <p><code>git diff</code> has more options to use allowing the comparisons of various files. There are also GUI tools for git diff. Some include: KDiff3, P4Merge, WinMerge, and Visual Studio Code.</p>
+        </section>
+        <section class="main-section" id="GitHub_&_Using_Clone,_Push,_&_Pull">
+            <header class=section-header><h1>GitHub & Using Clone, Push, & Pull</h1></header>
+            <p>When using a hosting service like GitHub, there are three key commands to learn: <code>git clone</code>, <code>git pull</code>, <code>git push</code>. Setting up GitHub will not be covered in this documentation.</p>
+            <p><code>git clone</code> is used when a remote repo exists, but a local one does not. <code>git clone</code> will take remote repo, clone it, and create a local directory for you to match it.</p>
+            <p><code>git pull</code> is used to grab the latest changes to the git repo, and merges them with those on your local directory.</p>
+            <p><code>git push</code> is used to push upstream (to the remote server) the user's local git repo commits.</p>
+            <p>I will not be going into any further details on these commands. Check out <a href="https://medium.com/@mehulgala77/github-fundamentals-clone-fetch-push-pull-fork-16d79bb16b79">this post</a> to get some more details on these basic commands and GitHub. To learn how to use them, check out this video on <a href="https://www.youtube.com/watch?v=RGOj5yH7evk">Git and GitHub for Beginners by freecodecamp</a>.</p>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class=footer-title>Disclaimer</div>
+            <div>The information provided is only a brief on the tools of git. Each subject mentioned here should be looked into further to be fully understood. As a starting point, check out this video on <a href="https://www.youtube.com/watch?v=8JJ101D3knE">Git Tutorial for Beginners by Mosh</a>.</div>
+        </div>
+    </footer>
+</body>
+</html>
